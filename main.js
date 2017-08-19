@@ -22,21 +22,24 @@ function search() {
       response.json().then(function(data) {
         console.log(data);
         let row1 = document.getElementById('row1');
-
+        row1.innerHTML = '<div></div>' // clears previous search results
 
         // Get the parent DIV, add click listener...
         row1.addEventListener("click",function(e) {
 	      // e.target was the clicked element
           if (e.target && e.target.matches("img.thumbnail")) {
-            console.log("Anchor element clicked!");
+            console.log("img element clicked!");
+            console.log(e.target.id);
+            let audio = document.getElementsByTagName('audio')[0];
+            audio.setAttribute('src',e.target.id);
 	         }
          });
 
 
-        row1.innerHTML = '<div></div>' // clears previous search results
+
         for (var i = 0; i < data.results.length; i++) {
           let track = data.results[i].trackName;
-          console.log("track: "+track)
+          //console.log("track: "+track)
           let artist = data.results[i].artistName;
           var thumbnail = data.results[i].artworkUrl100;
           var audio_preview = data.results[i].previewUrl;
@@ -47,7 +50,7 @@ function search() {
             result.classList.add("result");
             result.setAttribute("href", itunes_track_url);
             let resultInfo = `
-            <img class="thumbnail" src="${thumbnail}" />
+            <img class="thumbnail" src="${thumbnail}" id="${audio_preview}" />
             <a href="${itunes_track_url}">
             <p class="track" >${track}</p>
             </a>
