@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  flex-grow: 1;
+  flex-shrink: 1;
+  width: 80vw;
+}
+
+.row a {
+  width: 16vw;
+}
