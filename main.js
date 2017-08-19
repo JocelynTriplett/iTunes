@@ -9,7 +9,7 @@ function search() {
   var encoded_search_terms = search_terms.replace(' ', '+').toLowerCase();
   console.log("encoded_search_terms: "+encoded_search_terms);
 
-  fetch('https://itunes.apple.com/search?term='+encoded_search_terms+'&limit=15')
+  fetch('https://itunes.apple.com/search?term='+encoded_search_terms)
 
   .then(
     function(response) {
@@ -22,12 +22,8 @@ function search() {
       response.json().then(function(data) {
         console.log(data);
         let row1 = document.getElementById('row1');
-        let row2 = document.getElementById('row2');
-        let row3 = document.getElementById('row3');
         row1.innerHTML = '<div></div>' // clears previous search results
-        row2.innerHTML = '<div></div>'
-        row3.innerHTML = '<div></div>'
-        for (var i = 0; i < 15; i++) {
+        for (var i = 0; i < data.results.length; i++) {
           let track = data.results[i].trackName;
           console.log("track: "+track)
           let artist = data.results[i].artistName;
@@ -36,27 +32,22 @@ function search() {
           let itunes_track_url = data.results[i].trackViewUrl;
           let itunes_artist_url = data.results[i].artistViewUrl;
 
-          let result = document.createElement("a");
+          let result = document.createElement("div");
+            result.classList.add("result");
             result.setAttribute("href", itunes_track_url);
             let resultInfo = `
-            <div>
+            <a href="${itunes_track_url}">
             <img src="${thumbnail}" />
+            </a>
+            <a href="${itunes_track_url}">
             <p>${track}</p>
+            </a>
+            <a href="${itunes_artist_url}">
             <p>${artist}</p>
+            </a>
             </div>
-            `
-            if (i<5){
-              row1.appendChild(result);
-              result.innerHTML = resultInfo;
-            }
-            else if (i>4 && i<10){
-              row2.appendChild(result);
-              result.innerHTML = resultInfo;
-            }
-            else {
-              row3.appendChild(result);
-              result.innerHTML = resultInfo;
-            }
-
-
+            `;
+            row1.appendChild(result);
+            result.innerHTML = resultInfo;
+            
       }})})};

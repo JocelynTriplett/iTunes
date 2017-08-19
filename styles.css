@@ -7,13 +7,29 @@ body {
 .row {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   flex-grow: 1;
   flex-shrink: 1;
   width: 80vw;
+  height: 200px;
 }
 
-.row a {
-  width: 16vw;
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 120px;
+}
+
+.result a {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  text-align: center;
+}
+
+.result a p {
+
 }
