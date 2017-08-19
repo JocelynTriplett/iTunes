@@ -30,6 +30,10 @@ body {
   text-align: center;
 }
 
-.result a p {
+.track {
+  margin-bottom: 2px;
+}
 
+.artist {
+  margin-top: 2px;
 }

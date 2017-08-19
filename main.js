@@ -22,6 +22,17 @@ function search() {
       response.json().then(function(data) {
         console.log(data);
         let row1 = document.getElementById('row1');
+
+
+        // Get the parent DIV, add click listener...
+        row1.addEventListener("click",function(e) {
+	      // e.target was the clicked element
+          if (e.target && e.target.matches("img.thumbnail")) {
+            console.log("Anchor element clicked!");
+	         }
+         });
+
+
         row1.innerHTML = '<div></div>' // clears previous search results
         for (var i = 0; i < data.results.length; i++) {
           let track = data.results[i].trackName;
@@ -36,18 +47,20 @@ function search() {
             result.classList.add("result");
             result.setAttribute("href", itunes_track_url);
             let resultInfo = `
+            <img class="thumbnail" src="${thumbnail}" />
             <a href="${itunes_track_url}">
-            <img src="${thumbnail}" />
-            </a>
-            <a href="${itunes_track_url}">
-            <p>${track}</p>
+            <p class="track" >${track}</p>
             </a>
             <a href="${itunes_artist_url}">
-            <p>${artist}</p>
+            <p class="artist">${artist}</p>
             </a>
             </div>
             `;
             row1.appendChild(result);
             result.innerHTML = resultInfo;
-            
+
+
+
+
+
       }})})};
