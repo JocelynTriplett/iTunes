@@ -22,7 +22,7 @@ function search() {
       response.json().then(function(data) {
         console.log(data);
         let row1 = document.getElementById('row1');
-        row1.innerHTML = '<div></div>' // clears previous search results
+        row1.innerHTML = '' // clears previous search results
 
         // Get the parent DIV, add click listener...
         row1.addEventListener("click",function(e) {

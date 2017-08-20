@@ -4,6 +4,44 @@ body {
   align-items: center;
 }
 
+h1 {
+
+}
+
+.audio {
+  display: flex;
+  width: 80vw;
+  /*height: 40px;*/
+  justify-content: center;
+}
+
+#audio {
+  width: 80vw;
+  padding: 20px;
+}
+
+.search_wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 80vw;
+  justify-content: center;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
+  padding: 15px;
+  align-items: center;
+}
+
+#search_terms {
+  width: 50vw;
+  line-height: 30px;
+}
+
+#submit {
+  width: 80px;
+  margin: 5px;
+  height: 30px;
+}
+
 .row {
   display: flex;
   flex-direction: row;
