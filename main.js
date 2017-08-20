@@ -4,21 +4,17 @@ let submit = document.getElementById('submit');
 submit.addEventListener('click', search, false);
 
 document.onkeypress = keyPress;
-
 function keyPress(e){
   var x = e || window.event;
   var key = (x.keyCode || x.which);
     if(key == 13 || key == 3){
-     //  myFunc1();
      search();
     }
     }
 
 function search() {
   let search_terms = document.getElementById('search_terms').value;
-  console.log("search terms: "+search_terms);
   var encoded_search_terms = search_terms.replace(' ', '+').toLowerCase();
-  console.log("encoded_search_terms: "+encoded_search_terms);
 
   fetch('https://itunes.apple.com/search?term='+encoded_search_terms)
 
@@ -31,13 +27,10 @@ function search() {
       }
 
       response.json().then(function(data) {
-        console.log(data);
         let row1 = document.getElementById('row1');
         row1.innerHTML = '' // clears previous search results
 
-        // Get the parent DIV, add click listener...
         row1.addEventListener("click",function(e) {
-	      // e.target was the clicked element
           if (e.target && e.target.matches("img.thumbnail")) {
             let audio = document.getElementsByTagName('audio')[0];
             audio.setAttribute('src',e.target.id);
@@ -50,7 +43,6 @@ function search() {
 
         for (var i = 0; i < data.results.length; i++) {
           let track = data.results[i].trackName;
-          //console.log("track: "+track)
           let artist = data.results[i].artistName;
           var thumbnail = data.results[i].artworkUrl100;
           var audio_preview = data.results[i].previewUrl;
@@ -72,9 +64,4 @@ function search() {
             `;
             row1.appendChild(result);
             result.innerHTML = resultInfo;
-
-
-
-
-
       }})})};
