@@ -28,14 +28,14 @@ function search() {
         row1.addEventListener("click",function(e) {
 	      // e.target was the clicked element
           if (e.target && e.target.matches("img.thumbnail")) {
-            console.log("img element clicked!");
-            console.log(e.target.id);
             let audio = document.getElementsByTagName('audio')[0];
             audio.setAttribute('src',e.target.id);
+            let now_playing = document.getElementById('now_playing');
+            let current_track = e.target.parentElement.getElementsByClassName('track')[0].innerText;
+            let current_artist = e.target.parentElement.getElementsByClassName('artist')[0].innerText;
+            now_playing.innerHTML = `Now Playing: ${current_track} by ${current_artist}`
 	         }
          });
-
-
 
         for (var i = 0; i < data.results.length; i++) {
           let track = data.results[i].trackName;
