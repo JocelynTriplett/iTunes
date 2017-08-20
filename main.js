@@ -3,6 +3,17 @@ console.log("talking");
 let submit = document.getElementById('submit');
 submit.addEventListener('click', search, false);
 
+document.onkeypress = keyPress;
+
+function keyPress(e){
+  var x = e || window.event;
+  var key = (x.keyCode || x.which);
+    if(key == 13 || key == 3){
+     //  myFunc1();
+     search();
+    }
+    }
+
 function search() {
   let search_terms = document.getElementById('search_terms').value;
   console.log("search terms: "+search_terms);
