@@ -38,8 +38,11 @@ function search() {
             let audio = document.getElementsByTagName('audio')[0];
             audio.setAttribute('src',e.target.id);
             let now_playing = document.getElementById('now_playing');
+            let now_playing_image = document.getElementById('now_playing_image');
             let current_track = e.target.parentElement.getElementsByClassName('track')[0].innerText;
             let current_artist = e.target.parentElement.getElementsByClassName('artist')[0].innerText;
+            // let current_thumbnail = e.target.src;
+            now_playing_image.setAttribute('src', e.target.src)
             now_playing.innerHTML = `Now Playing: ${current_track} by ${current_artist}`
           }
         });
