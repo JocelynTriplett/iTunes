@@ -61,12 +61,15 @@ function search() {
           result.setAttribute("href", itunes_track_url);
           let resultInfo = `
           <img class="thumbnail" src="${thumbnail}" id="${audio_preview}" />
+          <div class="result_text">
           <a href="${itunes_track_url}">
           <p class="track" >${track}</p>
           </a>
+          <p>By</p>
           <a href="${itunes_artist_url}">
           <p class="artist">${artist}</p>
           </a>
+          </div>
           </div>
           `;
           row1.appendChild(result);
