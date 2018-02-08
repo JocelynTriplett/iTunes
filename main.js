@@ -60,15 +60,16 @@ function search() {
           result.classList.add("result");
           result.setAttribute("href", itunes_track_url);
           let resultInfo = `
+          <div class="image_wrapper">
           <img class="thumbnail" src="${thumbnail}" id="${audio_preview}" />
+          </div>
           <div class="result_text">
-          <a href="${itunes_track_url}">
-          <p class="track" >${track}</p>
-          </a>
-          <p>By</p>
-          <a href="${itunes_artist_url}">
-          <p class="artist">${artist}</p>
-          </a>
+          <p class="track" >
+          <a href="${itunes_track_url}">${track}</a>
+          </p>
+          <p class="artist">
+          <a href="${itunes_artist_url}">${artist}</a>
+          </p>
           </div>
           </div>
           `;

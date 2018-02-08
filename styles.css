@@ -89,7 +89,7 @@ h1 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
   flex-grow: 1;
   flex-shrink: 1;
   width: 75vw;
@@ -102,29 +102,35 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-basis: 120px;
+  flex-basis: 165px;
   margin: 3px;
   padding: 10px;
   border: solid 3px dimgray;
-  margin: 5px 0 5px 0;
+  margin: 10px 0 10px 0;
   border-radius: 10px;
 }
 
-/* .result a {
+.result img {
+  width: 150px;
+  height: auto;
+}
+
+.image_wrapper {
+  min-height: 150px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  flex-grow: 1;
-  flex-shrink: 1;
-  text-align: center;
-} */
+  background-color: black;
+}
 
 .result_text {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   justify-content: space-between;
   flex-grow: 1;
   color: white;
+  height: 75px;
 }
 
 .track {
@@ -132,20 +138,31 @@ h1 {
   font-style: italic;
   text-decoration: none;
   color: white;
-  font-size: 1em;
+  font-size: 1.1em;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 160px;
+  white-space: nowrap;
 }
+
 
 .artist {
   margin-top: 2px;
   font-size: 1em;
   color: white;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 160px;
+  white-space: nowrap;
+  margin-bottom: 0;
 }
 
 a:link {
+  color: gainsboro;
   text-decoration: none;
 }
 
 a:hover {
-  color: blue;
+  color: #C850E3;
   text-decoration: underline;
 }
